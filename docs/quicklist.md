@@ -49,6 +49,12 @@ adabmDCA train -m edgeDCA -d <fasta_file> -o <output_folder>
 adabmDCA sample -p <file_params> -d <fasta_file> -o <output_folder> --ngen <num_gen>
 ```
 
+- __Generate sequences with replica-exchange MCMC__:
+
+```bash
+adabmDCA replica-exchange -p <file_params> -o <output_folder> --ngen <num_gen>
+```
+
 - __Score a sequence set__:
 
 ```bash

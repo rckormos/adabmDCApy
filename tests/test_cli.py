@@ -44,6 +44,8 @@ class CliTests(unittest.TestCase):
         commands = [
             "train",
             "sample",
+            "replica-exchange",
+            "replica_exchange",
             "contacts",
             "energies",
             "dms",

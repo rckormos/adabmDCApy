@@ -68,6 +68,8 @@
 - [`sampling.metropolis_step_independent_sites`](./adabmDCA.sampling.md#function-metropolis_step_independent_sites): Performs a single mutation using the Metropolis sampler. This version selects different random sites for each chain. It is
 - [`sampling.metropolis_step_uniform_sites`](./adabmDCA.sampling.md#function-metropolis_step_uniform_sites): Performs a single mutation using the Metropolis sampler. In this version, the mutation is attempted at the same sites for all chains.
 - [`sampling.sampling_profile`](./adabmDCA.sampling.md#function-sampling_profile): Samples from the profile model defined by the local biases only.
+- [`replica_exchange.geometric_beta_ladder`](./adabmDCA.replica_exchange.md#geometric_beta_ladder): Constructs a geometric inverse-temperature ladder.
+- [`replica_exchange.replica_exchange_sampling`](./adabmDCA.replica_exchange.md#replica_exchange_sampling): Samples the lowest-temperature slot of a replica-exchange ensemble.
 - [`statmech.compute_energy`](./adabmDCA.statmech.md#function-compute_energy): Compute the DCA energy for a batch of sequences.
 - [`statmech.compute_entropy`](./adabmDCA.statmech.md#function-compute_entropy): Compute the entropy of the DCA model.
 - [`statmech.compute_logZ_exact`](./adabmDCA.statmech.md#function-compute_logz_exact): Compute the log-partition function of the model.

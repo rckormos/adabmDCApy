@@ -117,6 +117,36 @@ def add_args_sample(parser: argparse.ArgumentParser) -> argparse.ArgumentParser:
     
     return parser
 
+
+def add_args_replica_exchange(parser: argparse.ArgumentParser) -> argparse.ArgumentParser:
+    parser.add_argument("-p", "--path_params", type=str, required=True, help="Path to the DCA parameter file.")
+    parser.add_argument("-o", "--output", type=str, required=True, help="Output directory.")
+    parser.add_argument("--ngen", type=int, required=True, help="Number of lowest-temperature samples to generate.")
+    parser.add_argument("-l", "--label", type=str, default=None, help="Optional output filename prefix.")
+    parser.add_argument("--alphabet", type=str, default="protein", help="Built-in or custom sequence alphabet.")
+    parser.add_argument("--sampler", type=str, default="gibbs", choices=["metropolis", "gibbs"], help="Local MCMC transition kernel.")
+    parser.add_argument("--nchains", type=int, default=32, help="(Defaults to 32). Number of independent replica ladders.")
+    parser.add_argument("--nreplicas", type=int, default=8, help="(Defaults to 8). Number of temperatures in an automatic ladder.")
+    parser.add_argument("--beta_min", type=float, default=0.2, help="(Defaults to 0.2). Hottest inverse temperature.")
+    parser.add_argument("--beta_max", type=float, default=1.0, help="(Defaults to 1.0). Target, coldest inverse temperature.")
+    parser.add_argument(
+        "--betas",
+        type=float,
+        nargs="+",
+        default=None,
+        help="Explicit strictly decreasing beta ladder; overrides nreplicas, beta_min, and beta_max.",
+    )
+    parser.add_argument("--burn_in_sweeps", type=int, default=100, help="(Defaults to 100). Sweeps discarded before collection.")
+    parser.add_argument("--sweeps_between_samples", type=int, default=10, help="(Defaults to 10). Sweeps between observations.")
+    parser.add_argument("--adaptation_sweeps", type=int, default=0, help="(Defaults to 0). Discarded sweeps with ladder adaptation enabled.")
+    parser.add_argument("--adaptation_window", type=int, default=100, help="(Defaults to 100). Sweeps between ladder updates.")
+    parser.add_argument("--adaptation_rate", type=float, default=0.5, help="(Defaults to 0.5). Initial ladder-adaptation rate.")
+    parser.add_argument("--adaptation_decay", type=float, default=0.5, help="(Defaults to 0.5). Adaptation-rate decay exponent.")
+    parser.add_argument("--seed", type=int, default=0, help="(Defaults to 0). Random seed.")
+    parser.add_argument("--device", type=str, default="cuda", help="(Defaults to 'cuda'). Computation device.")
+    parser.add_argument("--dtype", type=str, default="float32", help="(Defaults to 'float32'). Parameter dtype.")
+    return parser
+
 def add_args_tdint(parser: argparse.ArgumentParser) -> argparse.ArgumentParser:
     parser.add_argument("-p", "--path_params",      type=str,   required=True,           help="Path to the file containing the parameters of DCA model to sample from.")
     parser.add_argument("-d", "--data",             type=str,   required=True,           help="Path to the file containing the data to sample from.")

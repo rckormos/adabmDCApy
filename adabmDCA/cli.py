@@ -5,6 +5,8 @@ from contextlib import contextmanager
 COMMANDS = {
     "train": "adabmDCA.scripts.train",
     "sample": "adabmDCA.scripts.sample",
+    "replica-exchange": "adabmDCA.scripts.replica_exchange",
+    "replica_exchange": "adabmDCA.scripts.replica_exchange",
     "contacts": "adabmDCA.scripts.contacts",
     "energies": "adabmDCA.scripts.energies",
     "dms": "adabmDCA.scripts.dms",

@@ -73,6 +73,30 @@ For `edgeDCA`, `--pseudocount` acts as an effective learning rate for edge activ
 | `--device`¹            | cuda         | Device to be used between cuda (GPU) and CPU. Used in the Python version. |
 | `--dtype`¹             | float32      | Data type to be used between float32 and float64. Used in the Python version. |
 
+### Replica-exchange sampling
+
+| Command | Default value | Description |
+|---------|---------------|-------------|
+| `-p, --path_params` | N/A | DCA parameter file. |
+| `-o, --output` | N/A | Output directory. |
+| `--ngen` | N/A | Number of samples collected from the lowest-temperature slot. |
+| `-l, --label` | None | Optional output filename prefix. |
+| `--alphabet` | protein | Built-in or custom alphabet. |
+| `--sampler` | gibbs | Local transition kernel: `gibbs` or `metropolis`. |
+| `--nchains` | 32 | Number of independent replica ladders. |
+| `--nreplicas` | 8 | Number of temperatures in the automatic geometric ladder. |
+| `--beta_min` | 0.2 | Hottest inverse temperature. |
+| `--beta_max` | 1.0 | Target, coldest inverse temperature. |
+| `--betas` | None | Explicit strictly decreasing beta ladder; overrides automatic-ladder options. |
+| `--burn_in_sweeps` | 100 | Replica-exchange sweeps discarded before collection. |
+| `--sweeps_between_samples` | 10 | Sweeps between observations of the target slot. |
+| `--adaptation_sweeps` | 0 | Discarded sweeps during which equal-acceptance ladder adaptation is enabled. |
+| `--adaptation_window` | 100 | Sweeps of swap statistics between ladder updates. |
+| `--adaptation_rate` | 0.5 | Initial log-beta-gap adaptation rate. |
+| `--adaptation_decay` | 0.5 | Power-law decay exponent for the adaptation rate. |
+| `--seed` | 0 | Random seed. |
+| `--device` | cuda | Computation device. |
+| `--dtype` | float32 | Parameter dtype. |
 
 ## Computing DCA energies of a MSA
 

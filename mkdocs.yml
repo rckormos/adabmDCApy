@@ -17,6 +17,7 @@ nav:
       - DCA utils: api/adabmDCA.dca.md
       - Import and export: api/adabmDCA.io.md
       - Sampling functions: api/adabmDCA.sampling.md
+      - Replica-exchange sampling: api/adabmDCA.replica_exchange.md
       - Utilities: api/adabmDCA.utils.md
       - Dataset class: api/adabmDCA.dataset.md
       - Statistical mechanics functions: api/adabmDCA.statmech.md
